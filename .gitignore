@@ -4,3 +4,5 @@ node_modules
 *.log
 crawler.mjs
 download_all_chunks.mjs
+
+.vercel
