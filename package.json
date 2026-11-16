@@ -1,8 +1,7 @@
 {
   "name": "codeofsagar-clone",
   "version": "1.0.0",
-  "description": "Complete clone of https://codeofsagar.in",
-  "main": "server.js",
+  "private": true,
   "type": "module",
   "scripts": {
     "start": "node server.js"
