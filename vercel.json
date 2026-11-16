@@ -20,15 +20,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/_vercel/insights/script.js",
-      "destination": "/script.js"
-    },
-    {
-      "source": "/:chunk([a-zA-Z0-9_\\-]+\\.js)",
-      "destination": "/_next/static/immutable/chunks/:chunk"
-    }
   ]
 }
