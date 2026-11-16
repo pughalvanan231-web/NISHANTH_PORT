@@ -65,7 +65,7 @@
 
       <!-- Video Area: Pure 100% viewport edge-to-edge -->
       <div style="position:relative;width:100%;height:calc(100% - 65px);flex:1;display:flex;align-items:center;justify-content:center;background:#000000;overflow:hidden;">
-        <iframe id="vfm-iframe" style="width:100%;height:100%;border:none;background:#000000;" src="" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="true"></iframe>
+        <iframe id="vfm-iframe" style="position:absolute;top:-62px;left:0;width:100%;height:calc(100% + 124px);border:none;background:#000000;" src="" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="true"></iframe>
       </div>
     `;
 
