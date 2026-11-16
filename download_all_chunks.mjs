@@ -49,7 +49,7 @@ async function main() {
         while ((m = regex.exec(text)) !== null) {
           chunkSet.add(m[1]);
         }
-        // Also look for /assets/static/immutable/chunks/
+        // Also look for /asset/static/immutable/chunks/
         const re2 = /["'](\/_next\/static\/immutable\/chunks\/[^"']+\.js)["']/g;
         let m2;
         while ((m2 = re2.exec(text)) !== null) {
@@ -69,7 +69,7 @@ async function main() {
   while (queue.length > 0) {
     const chunkRel = queue.shift();
     const dest = path.join(ROOT_DIR, '_next', chunkRel);
-    const url = `${BASE_URL}/assets/${chunkRel}`;
+    const url = `${BASE_URL}/asset/${chunkRel}`;
 
     if (!fs.existsSync(dest)) {
       const ok = await download(url, dest);

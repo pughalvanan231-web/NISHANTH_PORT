@@ -4,7 +4,7 @@ import path from 'path';
 
 const PORT = process.env.PORT || 3000;
 const ROOT_DIR = process.cwd();
-const CHUNKS_DIR = path.join(ROOT_DIR, 'assets', 'static', 'immutable', 'chunks');
+const CHUNKS_DIR = path.join(ROOT_DIR, 'asset', 'static', 'immutable', 'chunks');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=UTF-8',
@@ -59,8 +59,8 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  // 1. Handle Next.js Image Optimization route: /assets/image?url=...
-  if (pathname === '/assets/image') {
+  // 1. Handle Next.js Image Optimization route: /asset/image?url=...
+  if (pathname === '/asset/image') {
     const targetImg = parsedUrl.searchParams.get('url');
     if (targetImg) {
       const decodedImg = decodeURIComponent(targetImg);
