@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /lab
+
+Host: https://codeofsagar.in
+Sitemap: https://codeofsagar.in/sitemap.xml

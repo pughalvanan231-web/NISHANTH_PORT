@@ -1,0 +1,20 @@
+{
+  "name": "codeofsagar-clone",
+  "version": "1.0.0",
+  "description": "Complete clone of https://codeofsagar.in including all pages, 3D WebGL Three.js scenes, assets, audio, and styling.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "threejs",
+    "webgl",
+    "nextjs",
+    "clone"
+  ],
+  "author": "CodeofSagar",
+  "license": "ISC"
+}
