@@ -881,7 +881,7 @@
   uniform float     uUseFlat;
   /**
    * ON A PHONE THE HERO IS PRINTED ON THE SHEET. The flat picture the turn
-   * reads holds the hero's last frame too (uSnap - Sagar, the hands and the
+   * reads holds the hero's last frame too (uSnap - Nishanth, the hands and the
    * headline - drawn in over the top uSnapFrac of the sky while the flat
    * picture is made), so the sheet carries them over itself and the hero's
    * own layer is hidden for the turn. It used to be cut to the curl by a
