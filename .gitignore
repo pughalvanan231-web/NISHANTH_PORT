@@ -6,3 +6,5 @@ crawler.mjs
 download_all_chunks.mjs
 
 .vercel
+
+scratch/
