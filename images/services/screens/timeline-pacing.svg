@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14151a"/>
+      <stop offset="100%" stop-color="#0d0e12"/>
+    </linearGradient>
+    <linearGradient id="v1Clip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="v1Clip2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="v2Clip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="v3Clip" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="audioGrad1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="audioGrad2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#be185d"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Top Timeline Header Bar -->
+  <rect x="0" y="0" width="800" height="46" fill="#181a20" border-bottom="1px solid #262933"/>
+  <line x1="0" y1="46" x2="800" y2="46" stroke="#2a2d38" stroke-width="1"/>
+
+  <!-- Sequence Tab -->
+  <rect x="16" y="10" width="220" height="28" rx="5" fill="#222530" stroke="#333745" stroke-width="1"/>
+  <circle cx="30" cy="24" r="4" fill="#3b82f6"/>
+  <text x="42" y="28" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="600">NARRATIVE_SCENE_04.prproj</text>
+
+  <!-- Timecode Display -->
+  <rect x="630" y="10" width="154" height="28" rx="5" fill="#090a0d" stroke="#1f232d" stroke-width="1"/>
+  <text x="642" y="28" fill="#38bdf8" font-family="ui-monospace, monospace" font-size="13" font-weight="700" letter-spacing="1">01:00:24:18</text>
+  <text x="746" y="28" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="600">24 fps</text>
+
+  <!-- Timeline Time Ruler -->
+  <rect x="0" y="47" width="800" height="32" fill="#121318"/>
+  <line x1="0" y1="79" x2="800" y2="79" stroke="#232630" stroke-width="1"/>
+
+  <!-- Ruler Tick Marks & Labels -->
+  <g stroke="#3a3e4e" stroke-width="1">
+    <line x1="50" y1="65" x2="50" y2="79"/><text x="50" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:10:00</text>
+    <line x1="120" y1="72" x2="120" y2="79"/>
+    <line x1="190" y1="65" x2="190" y2="79"/><text x="190" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:15:00</text>
+    <line x1="260" y1="72" x2="260" y2="79"/>
+    <line x1="330" y1="65" x2="330" y2="79"/><text x="330" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:20:00</text>
+    <line x1="400" y1="72" x2="400" y2="79"/>
+    <line x1="470" y1="65" x2="470" y2="79"/><text x="470" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:25:00</text>
+    <line x1="540" y1="72" x2="540" y2="79"/>
+    <line x1="610" y1="65" x2="610" y2="79"/><text x="610" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:30:00</text>
+    <line x1="680" y1="72" x2="680" y2="79"/>
+    <line x1="750" y1="65" x2="750" y2="79"/><text x="750" y="61" fill="#64748b" font-family="ui-monospace, monospace" font-size="9" text-anchor="middle">01:00:35:00</text>
+  </g>
+
+  <!-- Track Header Sidebar -->
+  <rect x="0" y="80" width="70" height="420" fill="#15171d"/>
+  <line x1="70" y1="80" x2="70" y2="500" stroke="#252834" stroke-width="1"/>
+
+  <!-- Track Header Labels -->
+  <g fill="#94a3b8" font-family="ui-monospace, monospace" font-size="11" font-weight="700">
+    <text x="24" y="118">V3</text>
+    <text x="24" y="174">V2</text>
+    <text x="24" y="244">V1</text>
+    <line x1="0" y1="282" x2="800" y2="282" stroke="#333745" stroke-width="1.5" stroke-dasharray="4 2"/>
+    <text x="24" y="324">A1</text>
+    <text x="24" y="394">A2</text>
+    <text x="24" y="464">A3</text>
+  </g>
+
+  <!-- Track Row Separators -->
+  <g stroke="#1e212b" stroke-width="1">
+    <line x1="70" y1="136" x2="800" y2="136"/>
+    <line x1="70" y1="196" x2="800" y2="196"/>
+    <line x1="70" y1="282" x2="800" y2="282"/>
+    <line x1="70" y1="352" x2="800" y2="352"/>
+    <line x1="70" y1="422" x2="800" y2="422"/>
+  </g>
+
+  <!-- V3 CLIPS (Motion & VFX Overlay) -->
+  <g>
+    <rect x="210" y="88" width="170" height="42" rx="4" fill="url(#v2Clip)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="222" y="113" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">TITLES_KINETIC.aep</text>
+
+    <rect x="490" y="88" width="190" height="42" rx="4" fill="url(#v2Clip)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="502" y="113" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">LOWER_THIRD_DIRECTOR</text>
+  </g>
+
+  <!-- V2 CLIPS (B-Roll & Cutaways) -->
+  <g>
+    <rect x="110" y="144" width="160" height="46" rx="4" fill="url(#v3Clip)" stroke="#fbbf24" stroke-width="1"/>
+    <text x="122" y="171" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">B-ROLL_CLOSEUP_02</text>
+
+    <rect x="340" y="144" width="220" height="46" rx="4" fill="url(#v3Clip)" stroke="#fbbf24" stroke-width="1"/>
+    <text x="352" y="171" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">DRAMATIC_REACTION_SHOT</text>
+  </g>
+
+  <!-- V1 CLIPS (Main Narrative Story Tracks) -->
+  <g>
+    <rect x="76" y="204" width="190" height="72" rx="4" fill="url(#v1Clip)" stroke="#38bdf8" stroke-width="1"/>
+    <text x="88" y="232" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SCENE_04A_WIDE_4K.BRAW</text>
+    <text x="88" y="248" fill="#bae6fd" font-family="ui-monospace, monospace" font-size="9">Take 03 · Rec.709 Color</text>
+
+    <rect x="270" y="204" width="210" height="72" rx="4" fill="url(#v1Clip2)" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="282" y="232" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SCENE_04B_TIGHT_MATCH.BRAW</text>
+    <text x="282" y="248" fill="#bae6fd" font-family="ui-monospace, monospace" font-size="9">Take 05 [MASTER CUT POINT]</text>
+
+    <rect x="484" y="204" width="240" height="72" rx="4" fill="url(#v1Clip)" stroke="#38bdf8" stroke-width="1"/>
+    <text x="496" y="232" fill="#ffffff" font-family="system-ui, sans-serif" font-size="11" font-weight="700">SCENE_04C_CLIMAX_TENSION.BRAW</text>
+    <text x="496" y="248" fill="#bae6fd" font-family="ui-monospace, monospace" font-size="9">Take 02 · 120fps Ramp</text>
+  </g>
+
+  <!-- A1 TRACK: Dialogue Multi-Mic Sync & Waveforms -->
+  <g>
+    <rect x="76" y="290" width="310" height="56" rx="4" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="88" y="306" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="10" font-weight="700">LAV_MIC_ACTOR_01_SYNC.WAV</text>
+    <!-- Waveform Paths -->
+    <path d="M 88 328 Q 95 315, 102 328 T 116 328 T 130 310 T 144 328 T 158 338 T 172 328 T 186 312 T 200 328 T 214 340 T 228 328 T 242 315 T 256 328 T 270 342 T 284 328 T 298 318 T 312 328 T 326 336 T 340 328 T 354 314 T 368 328" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+
+    <rect x="390" y="290" width="330" height="56" rx="4" fill="#064e3b" stroke="#34d399" stroke-width="1"/>
+    <text x="402" y="306" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="10" font-weight="700">BOOM_MIC_DIALOGUE_L-CUT.WAV</text>
+    <path d="M 402 328 Q 412 310, 422 328 T 442 328 T 462 308 T 482 328 T 502 344 T 522 328 T 542 312 T 562 328 T 582 338 T 602 328 T 622 314 T 642 328 T 662 340 T 682 328 T 702 315" fill="none" stroke="#6ee7b7" stroke-width="2"/>
+  </g>
+
+  <!-- A2 TRACK: Foley, Impacts & Room Tone -->
+  <g>
+    <rect x="180" y="360" width="180" height="56" rx="4" fill="#701a75" stroke="#f472b6" stroke-width="1"/>
+    <text x="192" y="376" fill="#fbcfe8" font-family="system-ui, sans-serif" font-size="10" font-weight="700">FOLEY_DOOR_CREAK_SUB.WAV</text>
+    <path d="M 192 398 Q 200 380, 208 398 T 224 398 T 240 375 T 256 398 T 272 410 T 288 398 T 304 385 T 320 398 T 336 410 T 350 398" fill="none" stroke="#f472b6" stroke-width="2"/>
+
+    <rect x="420" y="360" width="280" height="56" rx="4" fill="#701a75" stroke="#f472b6" stroke-width="1"/>
+    <text x="432" y="376" fill="#fbcfe8" font-family="system-ui, sans-serif" font-size="10" font-weight="700">CINEMATIC_SUB_DROP_HIT.WAV</text>
+    <path d="M 432 398 Q 445 370, 458 398 T 484 398 T 510 365 T 536 398 T 562 418 T 588 398 T 614 378 T 640 398 T 666 414 T 688 398" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+  </g>
+
+  <!-- A3 TRACK: Film Score Soundtrack -->
+  <g>
+    <rect x="76" y="430" width="670" height="56" rx="4" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
+    <text x="88" y="446" fill="#c7d2fe" font-family="system-ui, sans-serif" font-size="10" font-weight="700">FILM_SCORE_ORCHESTRAL_BUILD_MASTER.WAV</text>
+    <path d="M 88 468 Q 110 448, 132 468 T 176 468 T 220 442 T 264 468 T 308 485 T 352 468 T 396 438 T 440 468 T 484 492 T 528 468 T 572 435 T 616 468 T 660 495 T 704 468 T 730 445" fill="none" stroke="#a5b4fc" stroke-width="2"/>
+  </g>
+
+  <!-- Markers -->
+  <g>
+    <!-- Marker 1: HOOK -->
+    <path d="M 120 74 L 126 84 L 114 84 Z" fill="#38bdf8"/>
+    <rect x="94" y="52" width="52" height="18" rx="3" fill="#0369a1"/>
+    <text x="120" y="64" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">HOOK</text>
+
+    <!-- Marker 2: MATCH CUT -->
+    <path d="M 270 74 L 276 84 L 264 84 Z" fill="#eab308"/>
+    <rect x="236" y="52" width="68" height="18" rx="3" fill="#a16207"/>
+    <text x="270" y="64" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">MATCH CUT</text>
+
+    <!-- Marker 3: BEAT DROP -->
+    <path d="M 484 74 L 490 84 L 478 84 Z" fill="#ef4444"/>
+    <rect x="450" y="52" width="68" height="18" rx="3" fill="#b91c1c"/>
+    <text x="484" y="64" fill="#ffffff" font-family="system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">BEAT DROP</text>
+  </g>
+
+  <!-- Active Playhead Line & Cursor -->
+  <g filter="url(#glow)">
+    <line x1="380" y1="47" x2="380" y2="500" stroke="#ef4444" stroke-width="2"/>
+    <path d="M 373 47 L 387 47 L 387 56 L 380 64 L 373 56 Z" fill="#ef4444"/>
+    <circle cx="380" cy="54" r="2.5" fill="#ffffff"/>
+  </g>
+</svg>
