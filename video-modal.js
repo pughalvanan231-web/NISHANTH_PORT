@@ -39,6 +39,10 @@
   let descEl = null;
 
   function initModal() {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = '.ClientsSection-module__wAld6q__rows { display: none !important; }';
+    document.head.appendChild(styleEl);
+
     if (modalEl) return;
 
     modalEl = document.createElement('div');
