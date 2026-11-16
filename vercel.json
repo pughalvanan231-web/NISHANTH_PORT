@@ -1,0 +1,34 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/models/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "model/gltf-binary"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/_vercel/insights/script.js",
+      "destination": "/script.js"
+    },
+    {
+      "source": "/:chunk([a-zA-Z0-9_\\-]+\\.js)",
+      "destination": "/_next/static/immutable/chunks/:chunk"
+    }
+  ]
+}
