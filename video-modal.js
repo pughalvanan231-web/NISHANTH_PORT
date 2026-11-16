@@ -201,6 +201,7 @@
     if (target.tagName === 'CANVAS' || target.closest('canvas')) {
       e.preventDefault();
       e.stopPropagation();
+      e.stopImmediatePropagation();
       playActiveVideo();
       return;
     }
@@ -234,9 +235,27 @@
     }
   }, true);
 
+  
+  function checkUrlAutoPlay() {
+    const path = (window.location.pathname || '').toLowerCase();
+    for (const slug in VIDEOS) {
+      if (path.includes('/work/' + slug)) {
+        setTimeout(function() {
+          playVideoFullscreen(slug);
+        }, 80);
+        return;
+      }
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initModal);
+    document.addEventListener('DOMContentLoaded', function() {
+      initModal();
+      checkUrlAutoPlay();
+    });
   } else {
     initModal();
+    checkUrlAutoPlay();
   }
+
 })();
