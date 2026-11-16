@@ -74,7 +74,7 @@ const server = http.createServer((req, res) => {
 
   // 2. Handle analytics scripts (/insights/script.js, /_vercel/insights/script.js, /script.js)
   if (pathname.endsWith('/script.js') || pathname === '/script.js') {
-    const mockPath = path.join(ROOT_DIR, '_vercel', 'insights', 'script.js');
+    const mockPath = path.join(ROOT_DIR, 'script.js');
     if (fs.existsSync(mockPath)) {
       return serveFile(res, mockPath);
     }
