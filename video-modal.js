@@ -40,7 +40,67 @@
 
   function initModal() {
     const styleEl = document.createElement('style');
-    styleEl.textContent = '.ClientsSection-module__wAld6q__rows { display: none !important; }';
+    styleEl.textContent = `
+      .ClientsSection-module__wAld6q__rows { display: none !important; }
+      .NavBar-module__aMivtW__bar {
+        padding: 0 20px !important;
+        height: 48px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+      }
+      .NavBar-module__aMivtW__logo { display: none !important; }
+      .NavBar-module__aMivtW__wordmark {
+        position: static !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        translate: none !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        font-family: var(--font-grotesk), system-ui, -apple-system, sans-serif !important;
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.015em !important;
+        line-height: 1 !important;
+        text-decoration: none !important;
+      }
+      .NavBar-module__aMivtW__right {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .NavBar-module__aMivtW__menuBox {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-family: var(--font-grotesk), system-ui, -apple-system, sans-serif !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.05em !important;
+        line-height: 1 !important;
+      }
+      .NavBar-module__aMivtW__word {
+        writing-mode: horizontal-tb !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+      }
+    `;
     document.head.appendChild(styleEl);
 
     if (modalEl) return;
