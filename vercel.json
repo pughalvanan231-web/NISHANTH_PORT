@@ -36,6 +36,10 @@
   ],
   "rewrites": [
     {
+      "source": "/work/:path+",
+      "destination": "/work"
+    },
+    {
       "source": "/playground(.*)",
       "destination": "/work"
     },

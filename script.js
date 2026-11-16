@@ -1,6 +1,12 @@
 // Nishanth Portfolio — Global Fullscreen Video Player (Mobile & Desktop)
 (function() {
   const VIDEOS = {
+    'marianna-caliandro': {
+      title: 'Meta Ad Campaign',
+      desc: 'High-Retention 9:16 Social Commercial (2026)',
+      id: '1Ooc-EUPPFXGLFRNRQNJnL5eI_8h2urQA',
+      slug: 'marianna-caliandro'
+    },
     'secnd-soul': {
       title: 'TVK Campaign Film',
       desc: 'Campaign & Event Film (2026)',
@@ -19,12 +25,6 @@
       id: '1Z4I7i13aeDysTj-MlQNT79DnCmJ89Twq',
       slug: 'afflu'
     },
-    'marianna-caliandro': {
-      title: 'Meta Ad Campaign',
-      desc: 'High-Retention 9:16 Social Commercial (2026)',
-      id: '1Ooc-EUPPFXGLFRNRQNJnL5eI_8h2urQA',
-      slug: 'marianna-caliandro'
-    },
     'stratedgy': {
       title: 'Fire Work Commercial',
       desc: 'High-Energy Festival Commercial (2026)',
@@ -37,59 +37,35 @@
   let iframeEl = null;
   let titleEl = null;
   let descEl = null;
-  let detailsLinkEl = null;
 
   function initModal() {
     if (modalEl) return;
 
     modalEl = document.createElement('div');
     modalEl.id = 'video-fullscreen-modal';
-    modalEl.style.cssText = `
-      display: none;
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 2147483647;
-      background: #000000;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      transition: opacity 0.2s ease-in-out;
-      opacity: 0;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    `;
+    modalEl.style.cssText = 'display:none;position:fixed;inset:0;width:100vw;height:100vh;z-index:2147483647;background:#000000;flex-direction:column;justify-content:space-between;align-items:center;transition:opacity 0.2s ease-in-out;opacity:0;overflow:hidden;margin:0;padding:0;';
 
     modalEl.innerHTML = `
-      <!-- Top Bar -->
-      <div style="width:100%;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1);box-sizing:border-box;">
-        <div style="display:flex;flex-direction:column;gap:1px;overflow:hidden;padding-right:12px;">
-          <span id="vfm-title" style="color:#ffffff;font-size:1.05rem;font-weight:700;letter-spacing:-0.02em;font-family:system-ui,-apple-system,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
-          <span id="vfm-desc" style="color:#9ca3af;font-size:0.75rem;font-family:system-ui,-apple-system,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
+      <!-- Top Bar Controls -->
+      <div style="width:100%;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;z-index:100;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.12);box-sizing:border-box;">
+        <div style="display:flex;flex-direction:column;gap:2px;overflow:hidden;padding-right:12px;">
+          <span id="vfm-title" style="color:#ffffff;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;font-family:system-ui,-apple-system,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
+          <span id="vfm-desc" style="color:#a1a1aa;font-size:0.78rem;font-family:system-ui,-apple-system,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-          <button id="vfm-fs-btn" type="button" style="cursor:pointer;background:rgba(255,255,255,0.15);color:#ffffff;border:1px solid rgba(255,255,255,0.25);border-radius:9999px;padding:8px 14px;font-size:0.78rem;font-weight:600;display:flex;align-items:center;gap:5px;font-family:system-ui,-apple-system,sans-serif;">
+        <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+          <button id="vfm-fs-btn" type="button" style="cursor:pointer;background:rgba(255,255,255,0.14);color:#ffffff;border:1px solid rgba(255,255,255,0.25);border-radius:9999px;padding:8px 16px;font-size:0.8rem;font-weight:600;display:flex;align-items:center;gap:5px;font-family:system-ui,-apple-system,sans-serif;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
             <span>Fullscreen</span>
           </button>
-          <button id="vfm-close-btn" type="button" style="cursor:pointer;background:#ffffff;color:#000000;border:none;border-radius:9999px;padding:8px 18px;font-size:0.85rem;font-weight:800;display:flex;align-items:center;gap:4px;font-family:system-ui,-apple-system,sans-serif;">
+          <button id="vfm-close-btn" type="button" style="cursor:pointer;background:#ffffff;color:#000000;border:none;border-radius:9999px;padding:8px 20px;font-size:0.88rem;font-weight:800;display:flex;align-items:center;gap:4px;font-family:system-ui,-apple-system,sans-serif;">
             ✕ Close
           </button>
         </div>
       </div>
 
-      <!-- Video Area: 100% full screen responsive -->
-      <div style="position:relative;width:100%;height:calc(100% - 95px);flex:1;display:flex;align-items:center;justify-content:center;background:#000000;overflow:hidden;">
+      <!-- Video Area: Pure 100% viewport edge-to-edge -->
+      <div style="position:relative;width:100%;height:calc(100% - 65px);flex:1;display:flex;align-items:center;justify-content:center;background:#000000;overflow:hidden;">
         <iframe id="vfm-iframe" style="width:100%;height:100%;border:none;background:#000000;" src="" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="true"></iframe>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div style="width:100%;padding:8px 16px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,0.08);box-sizing:border-box;">
-        <a id="vfm-details" href="#" style="color:#d4d4d8;font-size:0.78rem;text-decoration:underline;text-underline-offset:3px;font-family:system-ui,-apple-system,sans-serif;">
-          View project details &amp; case study →
-        </a>
       </div>
     `;
 
@@ -98,12 +74,9 @@
     iframeEl = document.getElementById('vfm-iframe');
     titleEl = document.getElementById('vfm-title');
     descEl = document.getElementById('vfm-desc');
-    detailsLinkEl = document.getElementById('vfm-details');
 
-    // Close button
     document.getElementById('vfm-close-btn').addEventListener('click', closeVideoModal);
 
-    // Fullscreen toggle
     document.getElementById('vfm-fs-btn').addEventListener('click', function() {
       if (!document.fullscreenElement) {
         if (modalEl.requestFullscreen) modalEl.requestFullscreen();
@@ -113,7 +86,6 @@
       }
     });
 
-    // Escape key
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modalEl && modalEl.style.display === 'flex') {
         closeVideoModal();
@@ -132,12 +104,10 @@
         }
       }
     }
-    if (!video) video = VIDEOS['secnd-soul'];
+    if (!video) video = VIDEOS['marianna-caliandro'] || VIDEOS['secnd-soul'];
 
     titleEl.textContent = video.title;
     descEl.textContent = video.desc;
-    detailsLinkEl.href = '/work/' + video.slug;
-    detailsLinkEl.onclick = function() { closeVideoModal(); };
 
     iframeEl.src = 'https://drive.google.com/file/d/' + video.id + '/preview?autoplay=1';
     modalEl.style.display = 'flex';
@@ -147,7 +117,6 @@
       modalEl.style.opacity = '1';
     });
 
-    // Attempt native fullscreen if initiated by user tap/click
     try {
       if (modalEl.requestFullscreen) {
         modalEl.requestFullscreen().catch(function() {});
@@ -172,26 +141,84 @@
     }, 200);
   }
 
-  window.playVideoFullscreen = playVideoFullscreen;
-  window.closeVideoModal = closeVideoModal;
-
-  // Intercept click on links, canvas, buttons
-  document.addEventListener('click', function(e) {
-    const target = e.target;
-    if (!target) return;
-
-    // "View project" link or work link
-    const link = target.closest('a[href*="/work/"]');
-    if (link) {
-      const href = link.getAttribute('href');
+  function playActiveVideo() {
+    if (window.currentWorkSlug && VIDEOS[window.currentWorkSlug]) {
+      playVideoFullscreen(window.currentWorkSlug);
+      return;
+    }
+    const activeLink = document.querySelector('.WorkReel-module__olH-9q__info a[href*="/work/"]') || 
+                       document.querySelector('.WorkReel-module__olH-9q__current') ||
+                       document.querySelector('a.link-swap[href*="/work/"]') ||
+                       document.querySelector('a[href*="/work/"]');
+    if (activeLink) {
+      const href = activeLink.getAttribute('href') || '';
       for (const slug in VIDEOS) {
-        if (href.endsWith('/work/' + slug) || href.endsWith('/work/' + slug + '/') || href === '/work/' + slug) {
-          e.preventDefault();
-          e.stopPropagation();
+        if (href.includes(slug)) {
           playVideoFullscreen(slug);
           return;
         }
       }
+    }
+    playVideoFullscreen('marianna-caliandro');
+  }
+
+  window.playVideoFullscreen = playVideoFullscreen;
+  window.closeVideoModal = closeVideoModal;
+  window.playActiveVideo = playActiveVideo;
+
+  // Touch tracking for canvas tap
+  let touchStartX = 0, touchStartY = 0, touchStartTime = 0;
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches && e.touches[0]) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    const target = e.target;
+    if (!target) return;
+    if (target.tagName === 'CANVAS' || target.closest('canvas')) {
+      const dt = Date.now() - touchStartTime;
+      const touch = e.changedTouches ? e.changedTouches[0] : null;
+      if (touch) {
+        const dx = Math.abs(touch.clientX - touchStartX);
+        const dy = Math.abs(touch.clientY - touchStartY);
+        if (dx < 20 && dy < 20 && dt < 450) {
+          playActiveVideo();
+        }
+      }
+    }
+  }, { passive: true });
+
+  // Click tracking
+  document.addEventListener('click', function(e) {
+    const target = e.target;
+    if (!target) return;
+
+    // Direct click on 3D canvas
+    if (target.tagName === 'CANVAS' || target.closest('canvas')) {
+      e.preventDefault();
+      e.stopPropagation();
+      playActiveVideo();
+      return;
+    }
+
+    // Play video / View project link
+    const link = target.closest('a[href*="/work/"]');
+    if (link) {
+      e.preventDefault();
+      e.stopPropagation();
+      const href = link.getAttribute('href') || '';
+      for (const slug in VIDEOS) {
+        if (href.includes(slug)) {
+          playVideoFullscreen(slug);
+          return;
+        }
+      }
+      playActiveVideo();
+      return;
     }
 
     // Any card or data-slug
