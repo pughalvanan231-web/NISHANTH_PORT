@@ -90,7 +90,7 @@ function normalizeUrl(targetUrl, currentUrl) {
 }
 
 function extractAssetAndPageUrls(content, currentUrl) {
-  // Regex to extract URLs from href, src, url(...), /_next/..., /images/..., /models/..., /audio/..., etc.
+  // Regex to extract URLs from href, src, url(...), /assets/..., /images/..., /models/..., /audio/..., etc.
   const regexes = [
     /href=["']([^"']+)["']/g,
     /src=["']([^"']+)["']/g,
@@ -191,7 +191,7 @@ async function main() {
           '.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif',
           '.mp3', '.ogg', '.wav', '.glb', '.gltf', '.bin',
           '.ico', '.txt', '.json', '.mp4', '.webm'
-        ].includes(ext) || linkObj.pathname.includes('/_next/') || linkObj.pathname.includes('/models/') || linkObj.pathname.includes('/audio/');
+        ].includes(ext) || linkObj.pathname.includes('/assets/') || linkObj.pathname.includes('/models/') || linkObj.pathname.includes('/audio/');
 
         if (isAsset) {
           assetQueue.add(link);
@@ -229,7 +229,7 @@ async function main() {
           for (const n of nested) {
             const nUrl = new URL(n);
             const nExt = path.extname(nUrl.pathname).toLowerCase();
-            if (['.woff', '.woff2', '.ttf', '.png', '.jpg', '.webp', '.svg', '.glb', '.mp3', '.js', '.css'].includes(nExt) || nUrl.pathname.includes('/_next/')) {
+            if (['.woff', '.woff2', '.ttf', '.png', '.jpg', '.webp', '.svg', '.glb', '.mp3', '.js', '.css'].includes(nExt) || nUrl.pathname.includes('/assets/')) {
               if (!assetQueue.has(n)) {
                 assetQueue.add(n);
                 assetList.push(n);
